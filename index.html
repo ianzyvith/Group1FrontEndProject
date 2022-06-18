@@ -5,21 +5,25 @@
         <meta charset="UTF-8"/>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
         <meta http-equiv="X-UA-Compatiable" content="ie=edge"/>
-        <link rel="stylesheet" href="https://unpkg.com/purecss@2.1.0/build/pure-min.css" integrity="sha384-yHIFVG6ClnONEA5yB5DJXfW2/KC173DIQrYoZMEtBvGzmf0PKiGyNEqe9N6BNDBH" crossorigin="anonymous">
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous"/>
+        <link rel="stylesheet" href="./assets/style.css"/>
         <title>Movie Search</title>
     </head>
 
-    <body>
-        <header class="text-container" id="header">
-        <h1 class="center" id="header-text">All About Movies <i class="fa fa-film"></i></h1>
-        </header>
+    <header>
+        <div id="hero-image" class="background">
+            <div id="header">
+                <h1 class="center" id="hero-text">All About Movies</h1>
+            </div>
+        </div>
+    </header>
 
+    <body>
         <!--main container-->
-        <div id="content" class="container">
-            <div class="row">
+        <div id="content" class="pure-g">
+            <div class="pure-u-md-1-4">
                 <!--left container-->
-                <div id="left-container" class="">
+                <div id="left-container">
                     <form>
                         <h3 for="title-search">Search by Title</h3>
                         <div class="form-row">
@@ -37,10 +41,22 @@
                     </form>
                 </div>
                 <!--right container-->
-                <div id="content-right" class="">
+                <div id="content-right" class="pure-u-md-3-4">
                     <!--div to show results-->
+                    <!--need to add <p> to grab title of the movie/genre-->
                     <div id="search-results"></div>
                 </div>
             </div>
         </div> 
+
+    <!--pure css-->
+    <link rel="stylesheet" href="https://unpkg.com/purecss@2.1.0/build/pure-min.css" integrity="sha384-yHIFVG6ClnONEA5yB5DJXfW2/KC173DIQrYoZMEtBvGzmf0PKiGyNEqe9N6BNDBH" crossorigin="anonymous">
+    <!--seperate pure css link for grids-->
+    <link rel="stylesheet" href="https://unpkg.com/purecss@2.1.0/build/grids-responsive-min.css">
+
     </body>
+
+    <footer>
+        <p>Contributors: livmeierx, ianzyvith and amatos</p>
+    </footer>
+</hmtl>
