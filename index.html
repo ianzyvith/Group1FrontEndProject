@@ -23,11 +23,11 @@
     <body>
         <!--main container-->
         <div id="content" class="pure-g">
+            <!--left container-->
             <div class="pure-u-md-1-4">
-                <!--left container-->
                 <div id="left-container">
                     <form>
-                        <h3 for="title-search">Search by Title</h3>
+                        <h3 for="title-search">Search by Title:</h3>
                         <div class="form-row">
                             <input id="title-search" class="form-input" name="title" value="enter title here"></input>
                             <button id="search-button" class="btn btn-primary" type="submit"><i class="fas fa-search"></i></button>
@@ -35,16 +35,19 @@
                     </form>
 
                     <form>
-                        <h3 for="genre-search">Search by Genre</h3>
+                        <h3 for="genre-search">Search by Genre:</h3>
                         <div class="form-row">
                             <input id="genre-search" class="form-input" name="title" value="enter genre here"></input>
                             <button id="search-button" class="btn btn-primary" type="submit"><i class="fas fa-search"></i></button>
                         </div>
                     </form>
                 </div>
-                <!--right container-->
-                <div id="content-right" class="pure-u-md-3-4">
+            </div>
+            <!--right container-->
+            <div class="pure-u-md-3-4">
+                <div id="right-container">
                     <!--div to show results-->
+                    <h3>Search Results!</h3>
                     <!--need to add <p> to grab title of the movie/genre-->
                     <div id="search-results"></div>
                 </div>
