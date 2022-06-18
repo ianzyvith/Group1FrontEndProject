@@ -55,10 +55,11 @@ body {
 }
 
 #left-container, #right-container {
+    margin: 10px 5px 15px;
+    border-collapse: separate;
     border-color: var(--primary-color);
     border-style: groove;
     border-radius: 10%;
-    border-spacing: 5px;
 }
 
 h3 {
