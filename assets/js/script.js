@@ -5,6 +5,13 @@ var genreBtn = document.querySelector("#genre-search-button");
 var listEl = document.querySelector(".form-column");
 var pastEl = document.querySelector("#past-searches");
 
+var titleModal = document.getElementById("titleModal");
+var genreModal = document.getElementById("genreModal");
+var apiModal = document.getElementById("apiModal");
+var span0 = document.getElementsByClassName("close0")[0];
+var span1 = document.getElementsByClassName("close1")[0];
+var span2 = document.getElementsByClassName("close2")[0];
+
 
 
 // function to use entry for title search in api call
@@ -16,7 +23,11 @@ var searchTitle = function() {
     if (document.getElementById("title-search").value == 0) {
 
         // insert modal to warn that search is empty
-        alert("test");
+        titleModal.style.display = "block";
+
+        span0.onclick = function() {
+            titleModal.style.display = "none";
+        }
     }
 
     else {
@@ -37,18 +48,39 @@ var imdbTitleCall = function(search) {
         // check if successful response
         if (response.ok) {
             response.json().then(function(data) {
-                console.log(data);
+                
+                if (data.results.length == 0) {
+                    // warn that valid title is needed
+                    titleModal.style.display = "block";
 
-                buildList(data);
+                    span0.onclick = function() {
+                        titleModal.style.display = "none";
+                    }
+                }
+
+                else {
+                    console.log(data);
+                    buildList(data);
+                }
             })
         }
 
         else {
             // insert modal to display "please type a movie title"
+            titleModal.style.display = "block";
+
+            span0.onclick = function() {
+                titleModal.style.display = "none";
+            }
         }
     })
     .catch(function(error) {
         // insert error modal "unable to connect to api"
+        apiModal.style.display = "block";
+
+        span2.onclick = function() {
+            apiModal.style.display = "none";
+        }
     })
 }
 
@@ -62,7 +94,11 @@ var searchGenre = function() {
     if (document.getElementById("genre-search").value == 0) {
 
         // insert modal to warn that search is empty
+        genreModal.style.display = "block";
 
+        span1.onclick = function() {
+            genreModal.style.display = "none";
+        }
     }
 
     else {
@@ -74,7 +110,7 @@ var searchGenre = function() {
     document.getElementById("genre-search").value = "";
 }
 
-// imdb call for searching by movie title 
+// imdb call for searching by movie genre
 var imdbGenreCall = function(search) {
 
     var api = "https://imdb-api.com/API/AdvancedSearch/" + imdbKEY + "/?genres=" + search;
@@ -91,11 +127,21 @@ var imdbGenreCall = function(search) {
         }
 
         else {
-            // insert modal to display "please type a movie title"
+            // insert modal to display "please type a movie genre"
+            genreModal.style.display = "block";
+
+            span1.onclick = function() {
+                genreModal.style.display = "none";
+            }
         }
     })
     .catch(function(error) {
         // insert error modal "unable to connect to api"
+        apiModal.style.display = "block";
+
+        span2.onclick = function() {
+            apiModal.style.display = "none";
+        }
     })
 }
 
@@ -104,7 +150,7 @@ var buildList = function(data) {
 
     listEl.innerHTML = "";
 
-    for (i = 0; i < data.results.length; i++) {
+    for (i = 0; i < 15; i++) {
         var newBtn = document.createElement("button");
 
         newBtn.textContent = data.results[i].title + " " + data.results[i].description;
@@ -158,7 +204,7 @@ var buildPastSearch = function() {
         var [input, id] = pastSearch[i].split(";");
 
         pastBtn.textContent = input + " (" + id + ")";
-        pastBtn.setAttribute("class", "pure-button item-list");
+        pastBtn.setAttribute("class", "pure-button item-list past-btn");
         pastBtn.setAttribute("type", "button");
         pastBtn.setAttribute("id", id);
 
@@ -166,9 +212,16 @@ var buildPastSearch = function() {
     }
 }
 
+
+// function to give functionality to previous search buttons
+
+
 titleBtn.addEventListener("click", searchTitle);
 genreBtn.addEventListener("click", searchGenre);
 window.onload = buildPastSearch;
+
+
+
 
 
 
