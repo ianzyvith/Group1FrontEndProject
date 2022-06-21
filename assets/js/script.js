@@ -3,15 +3,26 @@ var omdbKEY = "e5fda6";
 var titleBtn = document.querySelector("#title-search-button");
 var genreBtn = document.querySelector("#genre-search-button");
 var listEl = document.querySelector(".form-column");
+var pastEl = document.querySelector("#past-searches");
 
 
 
 // function to use entry for title search in api call
 var searchTitle = function() {
 
-    titleInput = document.getElementById("title-search").value;
+    var titleInput = document.getElementById("title-search").value;
+    var titleID = "title";
 
-    imdbTitleCall(titleInput);
+    if (document.getElementById("title-search").value == 0) {
+
+        // insert modal to warn that search is empty
+        alert("test");
+    }
+
+    else {
+        imdbTitleCall(titleInput);
+        saveSearch(titleInput, titleID);
+    }
 
     document.getElementById("title-search").value = "";
 }
@@ -45,9 +56,20 @@ var imdbTitleCall = function(search) {
 // function to use entry for genre search in api call
 var searchGenre = function() {
 
-    genreInput = document.getElementById("genre-search").value;
+    var genreInput = document.getElementById("genre-search").value;
+    var genreID = "genre";
 
-    imdbGenreCall(genreInput);
+    if (document.getElementById("genre-search").value == 0) {
+
+        // insert modal to warn that search is empty
+
+    }
+
+    else {
+
+        imdbGenreCall(genreInput);
+        saveSearch(genreInput, genreID);
+    }
 
     document.getElementById("genre-search").value = "";
 }
@@ -94,8 +116,59 @@ var buildList = function(data) {
     }
 }
 
+
+// save search results to local storage and show on left container
+var saveSearch = function(searchInput, searchID) {
+
+    // get localstorage variable
+    var pastSearch = JSON.parse(localStorage.getItem("pastSearch"));
+
+    // check if localstorage variable exists yet
+    if (pastSearch == null) {
+        pastSearch = [];
+    }
+
+    // check if variable is too long
+    if (pastSearch.length >= 5) {
+
+        // remove oldest search item
+        pastSearch.splice(0, 1,);
+    }
+
+    // push search info into localstorage variable
+    pastSearch.push(searchInput+ ";" + searchID);
+
+    // save to updated variable to localstorage
+    localStorage.setItem("pastSearch", JSON.stringify(pastSearch));
+    
+    buildPastSearch();
+}
+
+// build list of previous searches
+var buildPastSearch = function() {
+
+    pastEl.innerHTML = "";
+
+    // get localstorage variable
+    var pastSearch = JSON.parse(localStorage.getItem("pastSearch"));
+
+    for (i = 0; i < pastSearch.length; i++) {
+        var pastBtn = document.createElement("button");
+
+        var [input, id] = pastSearch[i].split(";");
+
+        pastBtn.textContent = input + " (" + id + ")";
+        pastBtn.setAttribute("class", "pure-button item-list");
+        pastBtn.setAttribute("type", "button");
+        pastBtn.setAttribute("id", id);
+
+        pastEl.appendChild(pastBtn); 
+    }
+}
+
 titleBtn.addEventListener("click", searchTitle);
 genreBtn.addEventListener("click", searchGenre);
+window.onload = buildPastSearch;
 
 
 

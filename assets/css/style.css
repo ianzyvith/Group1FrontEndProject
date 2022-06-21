@@ -63,6 +63,7 @@ body {
 }
 
 h3 {
+    margin-bottom: 5px;
     padding: 0px 20px 5px 20px;
     color: var(--secondary-color);
     font-size: 200%;
@@ -75,7 +76,13 @@ h3 {
 .form-column {
     display: flex;
     flex-direction: column;
-    padding: 0px 2px 15px 20px;
+    padding: 15px 15px 15px 20px;
+}
+
+#past-searches {
+    display: flex;
+    flex-direction: column;
+    padding: 15px 15px 15px 20px;
 }
 
 .item-list {
