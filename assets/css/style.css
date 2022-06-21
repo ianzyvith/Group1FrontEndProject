@@ -11,7 +11,7 @@ body {
 
 /* hero styling */
 #hero-image {
-    background-image: url(./images/hero-image.jpeg);
+    background-image: url(../images/hero-image.jpeg);
     background-size: cover;
     height: 85vh;
     width: 100vw;
@@ -59,7 +59,7 @@ body {
     border-collapse: separate;
     border-color: var(--primary-color);
     border-style: groove;
-    border-radius: 10%;
+    border-radius: 10px;
 }
 
 h3 {
@@ -70,6 +70,16 @@ h3 {
 
 .form-row {
     padding: 0px 2px 15px 20px;
+}
+
+.form-column {
+    display: flex;
+    flex-direction: column;
+    padding: 0px 2px 15px 20px;
+}
+
+.item-list {
+    margin-bottom: 20px;
 }
 
 /* footer styling */

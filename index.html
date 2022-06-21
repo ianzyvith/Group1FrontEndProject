@@ -6,7 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
         <meta http-equiv="X-UA-Compatiable" content="ie=edge"/>
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous"/>
-        <link rel="stylesheet" href="./assets/style.css"/>
+        <link rel="stylesheet" href="./assets/css/style.css"/>
         <title>Movie Search</title>
     </head>
     
@@ -26,19 +26,20 @@
             <!--left container-->
             <div class="pure-u-md-1-4">
                 <div id="left-container">
+
                     <form>
                         <h3 for="title-search">Search by Title:</h3>
-                        <div class="form-row">
-                            <input id="title-search" class="form-input" name="title" value="enter title here"></input>
-                            <button id="search-button" class="btn btn-primary" type="submit"><i class="fas fa-search"></i></button>
+                        <div class="form-row pure-form">
+                            <input id="title-search" name="title" placeholder="Enter Title Here"></input>
+                            <button id="title-search-button" class="pure-button pure-button-primary" type="button"><i class="fas fa-search"></i></button>
                         </div>
                     </form>
 
                     <form>
                         <h3 for="genre-search">Search by Genre:</h3>
-                        <div class="form-row">
-                            <input id="genre-search" class="form-input" name="title" value="enter genre here"></input>
-                            <button id="search-button" class="btn btn-primary" type="submit"><i class="fas fa-search"></i></button>
+                        <div class="form-row pure-form">
+                            <input id="genre-search" name="title" placeholder="Enter Genre Here"></input>
+                            <button id="genre-search-button" class="pure-button pure-button-primary" type="button"><i class="fas fa-search"></i></button>
                         </div>
                     </form>
                 </div>
@@ -49,7 +50,9 @@
                     <!--div to show results-->
                     <h3>Search Results!</h3>
                     <!--need to add <p> to grab title of the movie/genre-->
-                    <div id="search-results"></div>
+                    <div id="search-results" class="form-column">
+
+                    </div>
                 </div>
             </div>
         </div> 
@@ -58,6 +61,11 @@
     <link rel="stylesheet" href="https://unpkg.com/purecss@2.1.0/build/pure-min.css" integrity="sha384-yHIFVG6ClnONEA5yB5DJXfW2/KC173DIQrYoZMEtBvGzmf0PKiGyNEqe9N6BNDBH" crossorigin="anonymous">
     <!--seperate pure css link for grids-->
     <link rel="stylesheet" href="https://unpkg.com/purecss@2.1.0/build/grids-responsive-min.css">
+
+
+    <!-- link js file -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="./assets/js/script.js"></script>
 
     </body>
 
