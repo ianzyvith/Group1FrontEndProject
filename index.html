@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<hmtl lang="en">
+<html lang="en">
 
     <head>
         <meta charset="UTF-8"/>
@@ -32,6 +32,7 @@
                         <div class="form-row pure-form">
                             <input id="title-search" name="title" placeholder="Enter Title Here"></input>
                             <button id="title-search-button" class="pure-button pure-button-primary" type="button"><i class="fas fa-search"></i></button>
+
                         </div>
                     </form>
 
@@ -40,6 +41,8 @@
                         <div class="form-row pure-form">
                             <input id="genre-search" name="title" placeholder="Enter Genre Here"></input>
                             <button id="genre-search-button" class="pure-button pure-button-primary" type="button"><i class="fas fa-search"></i></button>
+                            
+
                         </div>
                     </form>
 
@@ -57,13 +60,42 @@
                 <div id="right-container">
                     <!--div to show results-->
                     <h3>Search Results!</h3>
-                    <!--need to add <p> to grab title of the movie/genre-->
                     <div id="search-results" class="form-column">
 
                     </div>
                 </div>
             </div>
         </div> 
+
+
+        <!--all modals for error winows-->
+
+            <!-- modal for empty title search -->
+                <div id="titleModal" class="modal">
+                    <!-- Modal content -->
+                    <div class="modal-content">
+                        <span class="close0">&times;</span>
+                        <p>Please Enter a Valid Movie Title</p>
+                    </div>
+                </div>
+
+            <!-- modal for empty genre search -->
+            <div id="genreModal" class="modal">
+                <!-- Modal content -->
+                <div class="modal-content">
+                    <span class="close1">&times;</span>
+                    <p>Please Enter a Valid Movie Genre</p>
+                </div>
+            </div>
+
+            <!-- modal for API error -->
+            <div id="apiModal" class="modal">
+                <!-- Modal content -->
+                <div class="modal-content">
+                    <span class="close2">&times;</span>
+                    <p>Error: Could Not Connect to API</p>
+                </div>
+            </div>
 
     <!--pure css-->
     <link rel="stylesheet" href="https://unpkg.com/purecss@2.1.0/build/pure-min.css" integrity="sha384-yHIFVG6ClnONEA5yB5DJXfW2/KC173DIQrYoZMEtBvGzmf0PKiGyNEqe9N6BNDBH" crossorigin="anonymous">
