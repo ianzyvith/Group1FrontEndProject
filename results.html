@@ -5,6 +5,7 @@
         <meta charset="UTF-8"/>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
         <meta http-equiv="X-UA-Compatiable" content="ie=edge"/>
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous"/>
         <link rel="stylesheet" href="./assets/css/style.css"/>
         <title>Movie Search</title>
     </head>
@@ -13,22 +14,86 @@
         <header>
             <!--hero image-->
             <div id="hero-image" class="pure-img">
+                <a href="./index.html" class="btn-back">
+                    Go Back
+                </a>
+
                 <div id="header">
-                    <h2 class="movie-search">Showing Information for: <span id="title-search"></span></h2>
-                </div>        
+                    <h2 class="movie-search">Showing Information for:
+                        <p></p>
+                        <span class="title-text" id="title-search"></span>
+                    </h2>
+                </div>
+                
             </div>
-            <a href="./index.html" class="btn-back">
-                Go Back
-            </a>
         </header>
         <!--container for info-->
-        <main>
-            <div id="info-container"> 
+        <main class="content" >
+            <div id="info-container" class="pure-g"> 
 
+                <!-- left side container -->
+                <div class="pure-u-md-1-2">
+                    <div id="left-container">
+                        <div id="info">
+                            <h4>Information:</h4>
+
+                            <div class="pure-g">
+                                <div class="pure-u-md-1-2">
+                                    <img id="poster" />
+                                </div>
+
+                                <div class="pure-u-md-1-2">
+                                    <h2 id="summary">Plot Summary: <span id="text" class="plot"></span></p>
+                                </div>
+                            </div>
+
+                            <h2>Release Date: <span id="text" class="date"></span></h2>
+                            <h2>Rated: <span id="text" class="rated"></span></h2>
+                            <h2>Runtime: <span id="text" class="runtime"></span></h2>
+                            <h2>Genre: <span id="text" class="genre"></span></h2>
+                            <h2>Cast: <span id="text" class="actors"></span></h2>
+                            <h2>Writer(s): <span id="text" class="writers"></span></h2>
+                            <h2>Director(s): <span id="text" class="directors"></span></h2>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- right side container -->
+                <div class="pure-u-md-1-2">
+                    <div id="right-container">
+                        <div id="info" class="reviews">
+                            <h4>Ratings:</h4>
+
+                            <h2>Internet Movie Database: <span id="text" class="imd"></span></h2>
+                            <h2>Rotten Tomatoes: <span id="text" class="rotten"></span></h2>
+                            <h2>Metacritic: <span id="text" class="meta"></span></h2>
+
+                            <h4>Metacritic Reviews:</h4>
+
+                        </div>
+                    </div>
+                </div>
             </div>
           </main>
+
+
+        <!--all modals for error winows-->
+
+        <!-- modal for API error -->
+        <div id="apiModal" class="modal">
+            <!-- Modal content -->
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <p>Error: Could Not Connect to API</p>
+            </div>
+        </div>
+
+            <!--pure css-->
+            <link rel="stylesheet" href="https://unpkg.com/purecss@2.1.0/build/pure-min.css" integrity="sha384-yHIFVG6ClnONEA5yB5DJXfW2/KC173DIQrYoZMEtBvGzmf0PKiGyNEqe9N6BNDBH" crossorigin="anonymous">
+            <!--seperate pure css link for grids-->
+            <link rel="stylesheet" href="https://unpkg.com/purecss@2.1.0/build/grids-responsive-min.css">
         
-          <script src=""></script>
+          <script src="./assets/js/respon.js"></script>
     </body>
 
     <footer>
