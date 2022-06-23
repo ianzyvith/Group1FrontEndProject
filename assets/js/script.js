@@ -151,14 +151,20 @@ var buildList = function(data) {
     listEl.innerHTML = "";
 
     for (i = 0; i < 15; i++) {
-        var newBtn = document.createElement("button");
+        // link button to results page
+        var btnLink = document.createElement("a");
+        btnLink.setAttribute("class", "pure-button item-list");
+        btnLink.setAttribute("type", "button");
+        btnLink.setAttribute("href", "./results.html?id=" + data.results[i].id);
+
+        // create buttons
+        var newBtn = document.createElement("span");
 
         newBtn.textContent = data.results[i].title + " " + data.results[i].description;
 
-        newBtn.setAttribute("class", "pure-button item-list");
-        newBtn.setAttribute("type", "button");
-
-        listEl.appendChild(newBtn);
+        // append to DOM
+        listEl.appendChild(btnLink);
+        btnLink.appendChild(newBtn);
     }
 }
 
