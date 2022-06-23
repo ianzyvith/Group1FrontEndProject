@@ -78,7 +78,7 @@ var imdbTitleCall = function(search) {
         // insert error modal "unable to connect to api"
         apiModal.style.display = "block";
 
-        span2.onclick = function() {
+        span3.onclick = function() {
             apiModal.style.display = "none";
         }
     })
@@ -139,7 +139,7 @@ var imdbGenreCall = function(search) {
         // insert error modal "unable to connect to api"
         apiModal.style.display = "block";
 
-        span2.onclick = function() {
+        span3.onclick = function() {
             apiModal.style.display = "none";
         }
     })
@@ -147,6 +147,14 @@ var imdbGenreCall = function(search) {
 
 // function to build movie list in right container
 var buildList = function(data) {
+
+    if (data.results == 0) {
+        // insert error modal 
+        badModal.style.display = "block";
+
+        span2.onclick = function() {
+            badModal.style.display = "none";
+        }
 
     listEl.innerHTML = "";
 
@@ -166,6 +174,7 @@ var buildList = function(data) {
         listEl.appendChild(btnLink);
         btnLink.appendChild(newBtn);
     }
+}
 }
 
 
